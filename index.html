@@ -7,9 +7,26 @@
         <script src="javascript.js" defer></script>
     </head>
     <body>
-  
+        
         <div id="sketchContainer">
 
         </div>
+
+        <div id="inputContainer">
+            <div class="dimensionContainer">
+                <div># of Horizontal Cells:</div>
+                <input id = "inputHorizontal" type="number" value = "16"pattern="\d*"> 
+
+            </div>
+            <div class="dimensionContainer">
+                <div># of Vertical Cells:</div>
+                <input id ="inputVertical" type="number" value = "16" pattern="\d*"> 
+
+            </div>
+            
+  
+            <button id="inputButton">Change Etch-A-Sketch Dimensions</button>
+        </div>
+
     </body>
 </html>
