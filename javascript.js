@@ -6,7 +6,7 @@ let inputHorizontal = document.getElementById("inputHorizontal");
 let inputButton = document.getElementById("inputButton")
 
 
-
+a
 const initialX = 16;
 const initialY = 16;
 
@@ -48,15 +48,26 @@ function generateGrid(gridX, gridY) {
         for (let j = 0; j < gridX; j++) {
             let currentCell = document.createElement("div");
             currentCell.classList.add("cell");
-            currentCell.style = `width: ${960 / gridX}px; height: ${960/gridY}px;`;
-         
+            currentCell.setAttribute("brightness", "0")
+            currentCell.style.width = `${960 / gridX}px`;
+            currentCell.style.height = `${960 / gridY}px`;
+            currentCell.setAttribute("brightness", 100);
             currentCell.addEventListener('mouseover', e => {
-             
+                let currentCell = e.target;
 
-                e.target.classList.add("activated");
-                
+                let color = Math.floor(Math.random() * 16777215).toString(16);
+                if (!currentCell.classList.contains("activated")) {
+                    currentCell.classList.add("activated");
+                    currentCell.style.backgroundColor = "#" + color;
+                }
 
-            })
+                else if (currentCell.getAttribute("brightness") != "0") {
+                    let brightness = parseInt(currentCell.getAttribute("brightness"));
+                    brightness -= 10;
+                    currentCell.setAttribute("brightness", brightness);
+                    currentCell.style.filter = `brightness(${brightness}%)`;
+                }
+            });
             currentRow.appendChild(currentCell);
         }
         sketchContainer.appendChild(currentRow);
@@ -64,6 +75,4 @@ function generateGrid(gridX, gridY) {
 
 }
 
-
-
-generateGrid(initialX,initialY)
+generateGrid(initialX, initialY)
