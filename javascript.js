@@ -18,7 +18,7 @@ inputVertical.addEventListener("input", e => {
 })
 
 inputHorizontal.addEventListener("input", e => {
-    currentY = e.target.value;
+    currentX = e.target.value;
 })
 
 inputButton.addEventListener("click", e => {
@@ -52,7 +52,10 @@ function generateGrid(gridX, gridY) {
          
             currentCell.addEventListener('mouseover', e => {
              
+
                 e.target.classList.add("activated");
+                
+
             })
             currentRow.appendChild(currentCell);
         }
